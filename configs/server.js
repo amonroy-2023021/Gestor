@@ -5,13 +5,17 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongoDB.js';
-
+import authRoutes from '../src/auth/auth.routes.js';
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false}));
     app.use(express.json());
     app.use(cors());
     app.use(helmet());
     app.use(morgan('dev'));
+}
+
+const routes = (app) => {
+    app.use('/gestorOpiniones/v1/auth', authRoutes)
 }
 
 const conectarDB = async() => {
