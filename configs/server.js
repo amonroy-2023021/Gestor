@@ -7,6 +7,8 @@ import morgan from 'morgan';
 import { dbConnection } from './mongoDB.js';
 import authRoutes from '../src/auth/auth.routes.js';
 import userRouter from '../src/user/user.routes.js';
+import publicactionRouter from '../src/publication/publication.routes.js'
+
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false}));
@@ -18,7 +20,8 @@ const middlewares = (app) => {
 
 const routes = (app) => {
     app.use('/gestorOpiniones/v1/auth', authRoutes),
-    app.use('/gestorOpiniones/v1/user', userRouter)
+    app.use('/gestorOpiniones/v1/user', userRouter),
+    app.use('/gestorOpiniones/v1/publications', publicactionRouter)
 }
 
 const conectarDB = async() => {
