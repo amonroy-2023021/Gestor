@@ -7,7 +7,7 @@ import morgan from 'morgan';
 import { dbConnection } from './mongoDB.js';
 import authRoutes from '../src/auth/auth.routes.js';
 import userRouter from '../src/user/user.routes.js';
-import publicactionRouter from '../src/publication/publication.routes.js'
+import publicactionRouter from '../src/publications/publication.routes.js'
 
 
 const middlewares = (app) => {

@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { savePublication, getPublications, eliminarPubli } from './publication.controller.js';
-import { validarCampos } from '../middlewares/validar-campos.js';
+import { savePublication, getPublications, deletePublications } from './publication.controller.js';
+import { validarCampos } from '../middleware/validar-campos.js';
 import { validarJWT } from "../middleware/jwt-validator.js";
 import { eliminarPublicacion } from '../middleware/publications-validator.js';
 
@@ -13,6 +13,6 @@ router.get(
     '/', validarCampos, getPublications )
 
 router.delete(
-    '/:id', validarJWT, eliminarPublicacion, validarCampos, eliminarPubli  )
+    '/:id', validarJWT, eliminarPublicacion, validarCampos, deletePublications  )
 
 export default router;
