@@ -6,6 +6,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongoDB.js';
 import authRoutes from '../src/auth/auth.routes.js';
+import userRouter from '../src/user/user.routes.js';
+
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false}));
     app.use(express.json());
@@ -15,7 +17,8 @@ const middlewares = (app) => {
 }
 
 const routes = (app) => {
-    app.use('/gestorOpiniones/v1/auth', authRoutes)
+    app.use('/gestorOpiniones/v1/auth', authRoutes),
+    app.use('/gestorOpiniones/v1/user', userRouter)
 }
 
 const conectarDB = async() => {
