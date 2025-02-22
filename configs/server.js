@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import { dbConnection } from './mongoDB.js';
 import authRoutes from '../src/auth/auth.routes.js';
 import userRouter from '../src/user/user.routes.js';
+import swaggerRoutes from './swaggerConfig.js';
 import publicactionRouter from '../src/publications/publication.routes.js'
 
 
@@ -16,6 +17,7 @@ const middlewares = (app) => {
     app.use(cors());
     app.use(helmet());
     app.use(morgan('dev'));
+    app.use(swaggerRoutes);
 }
 
 const routes = (app) => {
